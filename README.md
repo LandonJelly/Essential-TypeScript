@@ -1,2 +1,7 @@
 # Essential-TypeScript
-Essential TypeScript Book Notes
+
+> From Beginner to Pro , by Adam Freeman .
+>
+> Essential TypeScript Book Notes
+
+
