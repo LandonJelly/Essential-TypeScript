@@ -1,9 +1,9 @@
 /*
  * @Description: This file is made for
  * @Date: 2019-08-31 14:57:27
- * @LastEditTime: 2019-08-31 16:09:17
+ * @LastEditTime: 2019-09-01 23:18:38
  * @Author: LeongD
- * @LastEditors: LeongD
+ * @LastEditors: Please set LastEditors
  */
 import { TodoItem } from "./todoItem";
 
@@ -34,4 +34,6 @@ export class TodoCollection {
 }
 
 // Checking the Basic Data Model Features
-// page10
+// Adding Features to the Collection Class
+
+// page-13

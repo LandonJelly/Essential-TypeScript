@@ -1,9 +1,9 @@
 /*
  * @Description: This file is made for
  * @Date: 2019-08-31 14:31:19
- * @LastEditTime: 2019-08-31 14:36:37
+ * @LastEditTime: 2019-09-01 22:36:01
  * @Author: LeongD
- * @LastEditors: LeongD
+ * @LastEditors: Please set LastEditors
  */
 export class TodoItem {
   public id: number;
