@@ -1,43 +1,52 @@
 /*
  * @Description: This file is made for
  * @Date: 2019-08-31 12:32:41
- * @LastEditTime: 2019-09-02 21:15:17
+ * @LastEditTime: 2021-02-05 12:00:33
  * @Author: LeongD
- * @LastEditors: Please set LastEditors
+ * @LastEditors: LeongD
  */
 
-
 import { TodoItem } from "./todoItem";
-import { TodoCollection } from './todoCollection';
- 
+import { TodoCollection } from "./todoCollection";
 
+import * as inquirer from "inquirer";
 
-// let  todos  = [
-//     new TodoItem(1,'Buy Flowers'),new TodoItem(2,'Get Shoes'),
-//     new TodoItem(3, "Collect Tickets"), new TodoItem(4, "Call Joe", true)];
 let todos: TodoItem[] = [
-    new TodoItem(1, "Buy Flowers"), new TodoItem(2, "Get Shoes"),
-    new TodoItem(3, "Collect Tickets"), new TodoItem(4, "Call Joe", true)
+  new TodoItem(1, "Buy Flowers"),
+  new TodoItem(2, "Get Shoes"),
+  new TodoItem(3, "Collect Tickets"),
+  new TodoItem(4, "Call Joe", true),
 ];
 
+let collection: TodoCollection = new TodoCollection("Adam", todos);
 
-let collection: TodoCollection = new TodoCollection('Adam', todos);
+function displayTodoList(): void {
+  console.log(
+    `${collection.userName}'s Todo List ` +
+      `(${collection.getItemCounts().incomplete} items to do)`
+  );
+  collection.getTodoItems(true).forEach((item) => item.printDetails());
+}
 
-console.clear();
-console.log(`${collection.userName}'s Todo List`);
+enum Commands {
+  Quit = "Quit",
+}
 
+function promptUser(): void {
+  console.clear();
+  displayTodoList();
+  inquirer
+    .prompt({
+      type: "list",
+      name: "command",
+      message: "Choose option",
+      choices: Object.values(Commands),
+    })
+    .then((answers) => {
+      if (answers["command"] !== Commands.Quit) {
+        promptUser();
+      }
+    });
+}
 
-// let newId: number = collection.addTodo("Go for run");
-// let todoItem: TodoItem = collection.getTodoById(newId);
-// // console.log(JSON.stringify(todoItem));
-
-// todoItem.printDetails();
-
-collection.removeComplete()
-collection.getTodoItems(true).forEach(item=>item.printDetails());
-
-// type error 
-// collection.addTodo(todoItem);
-
-
- 
+promptUser();

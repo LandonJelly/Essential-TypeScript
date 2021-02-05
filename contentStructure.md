@@ -7,3 +7,6 @@
  -->
 PART I
 Getting Started with TypeScript
+
+PART II
+Working with TypeScript 

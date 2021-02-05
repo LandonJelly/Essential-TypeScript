@@ -3,7 +3,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 /*
  * @Description: This file is made for
  * @Date: 2019-08-31 14:57:27
- * @LastEditTime: 2019-09-02 21:01:49
+ * @LastEditTime: 2019-09-02 21:56:30
  * @Author: LeongD
  * @LastEditors: Please set LastEditors
  */
@@ -36,6 +36,19 @@ class TodoCollection {
         if (todoItem) {
             todoItem.complete = complete;
         }
+    }
+    removeComplete() {
+        this.itemMap.forEach(item => {
+            if (item.complete) {
+                this.itemMap.delete(item.id);
+            }
+        });
+    }
+    getItemCounts() {
+        return {
+            total: this.itemMap.size,
+            incomplete: this.getTodoItems(false).length
+        };
     }
 }
 exports.TodoCollection = TodoCollection;
